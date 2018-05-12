@@ -1,0 +1,31 @@
+<div class="main-container">
+    <header class="header header-6">
+        <div class="branding">
+            <a class="nav-link">
+                <clr-icon shape="administrator"></clr-icon>
+                <span class="title">Efika Baixa</span>
+            </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-icon" clrDropdownTrigger>
+                    <clr-icon shape="user"></clr-icon>
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                    <a clrDropdownItem (click)="sair()">Sair</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </header>
+    <nav class="subnav" *ngIf="sistemaService.subNavAtivo" [clr-nav-level]="1">
+        <subnav-component [menus]="sistemaService.subNavMenus"></subnav-component>
+    </nav>
+    <div class="content-container">
+        <div class="content-area">
+            <toasty-component></toasty-component>
+            <dynamic-router-component [component]="dynamicRouterService.component"></dynamic-router-component>
+            <div class="version-opacity">Versão: {{sistemaService.version}}</div>
+        </div>
+    </div>
+</div>

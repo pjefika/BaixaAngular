@@ -6,7 +6,7 @@ export class SistemaService {
 
     public version: string;
 
-    public ableMock: boolean = false;
+    public ableMock: boolean = true;
 
     public subNavAtivo: boolean = false;
 

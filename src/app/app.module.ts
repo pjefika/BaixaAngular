@@ -25,6 +25,9 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { PrincipalComponent } from './utilcomponents/principalcomponent/principal.component';
 import { BaixaComponent } from './utilcomponents/baixacomponent/baixa.component';
+import { MomentModule } from 'angular2-moment';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -45,7 +48,9 @@ import { BaixaComponent } from './utilcomponents/baixacomponent/baixa.component'
 		AppRoutingModule,
 		ToastyModule.forRoot(),
 		RequestModule,
-		FormsModule
+		FormsModule,
+		MomentModule,
+		BrowserAnimationsModule
 	],
 	providers: [
 		DynamicRouterService,

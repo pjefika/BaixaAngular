@@ -2,16 +2,19 @@
     {
         "ordem": "1-ABC123",
         "instancia": "1234567890",
-        "data": "11/05/2018 16:30:20"
+        "data": 1526029200,
+        "infoTec": "Tentei finalizar pelo ETA porem sem sucesso."
     },
     {
         "ordem": "1-BCA321",
         "instancia": "0987654321",
-        "data": "11/05/2018 16:35:00"
+        "data": 1541410525,
+        "infoTec": "Não consegui achar o botão de finalizar."
     },
     {
         "ordem": "1-CAB213",
         "instancia": "6549873210",
-        "data": "11/05/2018 16:45:00"
+        "data": 1526119200,
+        "infoTec": "Finaliza por favor."
     }
 ]

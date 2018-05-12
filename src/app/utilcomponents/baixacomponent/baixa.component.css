@@ -1,3 +1,20 @@
 .margin-comp {
     margin-top: -25px;
 }
+
+.margin-p {
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.change-op {
+    opacity: 0.2;
+}
+
+.margin-h {
+    margin-top: -5px;
+}
+
+label {
+    font-weight: bolder;
+}

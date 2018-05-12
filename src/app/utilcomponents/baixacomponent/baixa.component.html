@@ -1,41 +1,51 @@
 <div class="margin-comp">
     <h3>Lista</h3>
+    <div *ngIf="baixas">
+        <clr-datagrid>
+            <clr-dg-column>Ordem</clr-dg-column>
+            <clr-dg-column>Instância</clr-dg-column>
+            <clr-dg-column>Data</clr-dg-column>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Ordem</th>
-                <th>Instância</th>
-                <th>Data</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1-ABC123</td>
-                <td>1234567890</td>
-                <td>11/05/2018 16:30:20</td>
-                <td>
+            <clr-dg-row *ngFor="let baixa of baixas">
+                <clr-dg-cell>{{baixa.ordem}}</clr-dg-cell>
+                <clr-dg-cell>{{baixa.instancia}}</clr-dg-cell>
+                <clr-dg-cell>{{(baixa.data | amFromUnix) | amDateFormat:'DD/MM/YYYY h:mm:ss'}}</clr-dg-cell>
+                <clr-dg-action-overflow>
+                    <button class="action-item" (click)="abrirBaixaModal(baixa)">Tratar</button>
+                    <!-- <button class="action-item">Delete</button> -->
+                </clr-dg-action-overflow>
+            </clr-dg-row>
 
-                </td>
-            </tr>
-            <tr>
-                <td>1-BCA321</td>
-                <td>0987654321</td>
-                <td>11/05/2018 16:35:00</td>
-                <td>
+            <clr-dg-footer>
+                <clr-dg-pagination #pagination [clrDgPageSize]=" 10 ">
+                    Total: {{baixas.length}}
+                </clr-dg-pagination>
+            </clr-dg-footer>
+        </clr-datagrid>
+    </div>
 
-                </td>
-            </tr>
-            <tr>
-                <td>1-CAB213</td>
-                <td>6549873210</td>
-                <td>11/05/2018 16:45:00</td>
-                <td>
+    <clr-modal [(clrModalOpen)]="editarBaixaModal">
+        <h3 class="modal-title">Tratar Ordem</h3>
+        <div class="modal-body">
+            <div *ngIf="objBaixaModal">
+                <h5 class="margin-h">Resumo: </h5>
+                <label for="rordem">Ordem: </label>
+                <p id="rordem" class="margin-p">{{objBaixaModal.ordem}}</p>
+                <label for="rinfotec">Informação do Técnico: </label>
+                <p id="rinfotec" class="margin-p"> {{objBaixaModal.infoTec}} </p>
+                <label for="rinstancia">Instância</label>
+                <p id="rinstancia" class="margin-p">{{objBaixaModal.instancia}}</p>
+                <hr class="change-op ">
+                <label>Informações adicionais:</label>
+                <textarea name="infoBaixa" cols="18" rows="5" [(ngModel)]="objBaixaModal.info"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="editarBaixaModal = false">Voltar</button>
+            <!-- <button type="button" class="btn btn-primary" (click)="setBaixa()">Salvar</button> -->
+            <button type="button" class="btn btn-warning" (click)="setCloseBaixa()">Finalizar Ordem</button>
+        </div>
+    </clr-modal>
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
 </div>

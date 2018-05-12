@@ -1,5 +1,7 @@
 export class Baixa {
     ordem: string;
     instanica: string;
-    data: string;
+    data: number;
+    info?: string;
+    infoTec: string;
 }
